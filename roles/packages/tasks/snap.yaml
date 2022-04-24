@@ -1,0 +1,7 @@
+- name: install snap packages
+  ansible.builtin.snap:
+    name: "{{ item.name }}"
+    channel: "{{ item.channel }}"
+    classic: "{{ item.classic }}"
+    state: present
+  loop: "{{ snap_packages }}"

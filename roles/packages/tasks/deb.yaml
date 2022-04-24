@@ -1,0 +1,20 @@
+- name: create temp dir
+  ansible.builtin.tempfile:
+    state: directory
+  register: tempdir
+
+- name: download debs
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{tempdir.path}}/{{item.name}}.deb"
+  loop: "{{ debs }}"
+
+- name: install debs
+  ansible.builtin.apt:
+    deb: "{{tempdir.path}}/{{item.name}}.deb"
+  loop: "{{ debs }}"
+
+- name: remove temp dir
+  file:
+    state: absent
+    path: "{{ tempdir.path }}"

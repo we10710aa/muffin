@@ -1,0 +1,4 @@
+- name: install required packages
+  hosts: all
+  roles:
+    - packages

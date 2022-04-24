@@ -1,0 +1,59 @@
+apt_keys:
+  - https://download.docker.com/linux/ubuntu/gpg
+  - https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+apt_registries:
+  # docker
+  - deb https://download.docker.com/linux/ubuntu focal stable
+  - deb https://apt.kubernetes.io/ kubernetes-xenial main
+
+apt_pakcages:
+  - git
+  - python3-pip
+  - python3-setuptools
+  - virtualenv
+  - ssh
+  - radeontop
+  - snapd
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - gnupg
+  - lsb-release
+  - docker-ce
+  - docker-ce-cli
+  - kubectl
+
+snap_packages:
+  - name: lxd
+    channel: "latest/stable"
+    classic: false
+  - name: go
+    channel: "latest/stable"
+    classic: true
+  - name: ora
+    channel: "latest/stable"
+    classic: false
+  - name: bitwarden
+    channel: "latest/stable"
+    classic: false
+
+install_debs: false
+debs:
+  - name: vs-code
+    url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+  - name: obsidian
+    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v0.14.6/obsidian_0.14.6_amd64.deb
+  - name: hyper
+    url: https://releases.hyper.is/download/deb
+  - name: lens
+    url: https://lens-binaries.s3-eu-west-1.amazonaws.com/ide/Lens-5.4.6-latest.20220421.1.amd64.deb
+
+archived_files:
+  - name: helm
+    url: https://get.helm.sh/helm-v3.8.2-linux-amd64.tar.gz
+    binary_path: linux-amd64/helm
+  - name: kustomize
+    url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.4/kustomize_v4.5.4_linux_amd64.tar.gz
+    binary_path: kustomize
