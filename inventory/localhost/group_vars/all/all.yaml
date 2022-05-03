@@ -24,6 +24,7 @@ apt_pakcages:
   - docker-ce
   - docker-ce-cli
   - kubectl
+  - zsh
 
 snap_packages:
   - name: lxd
@@ -38,6 +39,9 @@ snap_packages:
   - name: bitwarden
     channel: "latest/stable"
     classic: false
+  - name: drawio
+    channel: "latest/stable"
+    classic: false   
 
 install_debs: false
 debs:
