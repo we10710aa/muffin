@@ -18,28 +18,10 @@ apt_pakcages:
   - kubectl
   - zsh
 
-snap_packages:
-  - name: lxd
-    channel: "latest/stable"
-    classic: false
-  - name: go
-    channel: "latest/stable"
-    classic: true
-  - name: bitwarden
-    channel: "latest/stable"
-    classic: false
-  - name: drawio
-    channel: "latest/stable"
-    classic: false
+snap_packages: []
 
 install_debs: false
-debs:
-  - name: vs-code
-    url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-  - name: hyper
-    url: https://releases.hyper.is/download/deb
-  - name: lens
-    url: https://lens-binaries.s3-eu-west-1.amazonaws.com/ide/Lens-5.4.6-latest.20220421.1.amd64.deb
+debs: []
 
 archived_files:
   - name: helm
