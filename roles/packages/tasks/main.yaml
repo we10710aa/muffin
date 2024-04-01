@@ -1,12 +1,11 @@
+---
 - name: Install apt packages
-  import_tasks: apt.yaml
-
+  ansible.builtin.import_tasks: apt.yaml
 - name: Install snap packages
-  import_tasks: snap.yaml
-
+  ansible.builtin.import_tasks: snap.yaml
 - name: Install deb pacakges
-  import_tasks: deb.yaml
+  ansible.builtin.import_tasks: deb.yaml
   when: install_debs
 
 - name: Install archived packages
-  import_tasks: archives.yaml
+  ansible.builtin.import_tasks: archives.yaml

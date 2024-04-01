@@ -1,0 +1,6 @@
+---
+all:
+  hosts:
+    primary:
+      ansible_host: lima-primary
+      ansible_ssh_common_args: -F /Users/raymond/.lima/primary/ssh.config

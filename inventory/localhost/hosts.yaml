@@ -1,4 +1,0 @@
-all:
-  hosts:
-    ubuntu-workstation:
-      ansible_connection: local

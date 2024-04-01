@@ -1,0 +1,28 @@
+---
+apt_keys: []
+apt_registries: []
+apt_pakcages:
+  - git
+  - python3-pip
+  - python3-setuptools
+  - virtualenv
+  - ssh
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - gnupg
+  - zsh
+
+snap_packages: []
+install_debs: false
+debs: []
+archived_files:
+  - name: helm
+    url: https://get.helm.sh/helm-v3.14.3-linux-arm64.tar.gz
+    binary_path: linux-arm64/helm
+    checksum: sha256:85e1573e76fa60af14ba7e9ec75db2129b6884203be866893fa0b3f7e41ccd5e
+  - name: kustomize
+    url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.3.0/kustomize_v5.3.0_linux_arm64.tar.gz
+    binary_path: kustomize
+    checksum: sha256:a1ec622d4adeb483e3cdabd70f0d66058b1e4bcec013c4f74f370666e1e045d8

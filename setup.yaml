@@ -1,4 +1,6 @@
-- name: install required packages
+---
+- name: Install required packages
   hosts: all
+  become: true
   roles:
     - packages

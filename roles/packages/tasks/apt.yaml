@@ -1,11 +1,12 @@
+---
 - name: Add apt Key
-  apt_key:
+  ansible.builtin.apt_key:
     url: "{{ item }}"
     state: present
   loop: "{{ apt_keys }}"
 
 - name: Add repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ item }}"
     state: present
   loop: "{{ apt_registries }}"
@@ -14,7 +15,7 @@
   ansible.builtin.apt:
     update_cache: true
 
-- name: install apt packages
+- name: Install apt packages
   ansible.builtin.apt:
     name: "{{ item }}"
     state: present

@@ -1,34 +1,40 @@
-- name: create temp dir
+---
+- name: Create temp dir
   ansible.builtin.tempfile:
     state: directory
   register: tempdir
 
-- name: download archive
+- name: Download archive
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     dest: "{{ tempdir.path }}/{{ item.name }}.archived"
+    checksum: '{{ item.checksum | default("") }}'
+    mode: "0644"
   loop: "{{ archived_files }}"
 
-- name: create unarchived folder
+- name: Create unarchived folder
   ansible.builtin.file:
     path: "{{ tempdir.path }}/{{ item.name }}.unarchived"
     state: directory
+    mode: "0755"
   loop: "{{ archived_files }}"
 
-- name: unarchive
+- name: Unarchive
   ansible.builtin.unarchive:
     src: "{{ tempdir.path }}/{{ item.name }}.archived"
+    remote_src: true
     dest: "{{ tempdir.path }}/{{ item.name }}.unarchived"
   loop: "{{ archived_files }}"
 
-- name: copy to /usr/local/bin
+- name: Copy to /usr/local/bin
   ansible.builtin.copy:
     src: "{{ tempdir.path }}/{{ item.name }}.unarchived/{{ item.binary_path }}"
+    remote_src: true
     dest: /usr/local/bin/
     mode: "0755"
   loop: "{{ archived_files }}"
 
-- name: remove temp dir
-  file:
+- name: Remove temp dir
+  ansible.builtin.file:
     state: absent
     path: "{{ tempdir.path }}"

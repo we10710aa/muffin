@@ -1,5 +1,6 @@
-- name: install snap packages
-  ansible.builtin.snap:
+---
+- name: Install snap packages
+  community.general.snap:
     name: "{{ item.name }}"
     channel: "{{ item.channel }}"
     classic: "{{ item.classic }}"
